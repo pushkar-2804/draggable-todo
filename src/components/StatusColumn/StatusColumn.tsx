@@ -1,7 +1,7 @@
 import { Droppable, Draggable } from "@hello-pangea/dnd";
 import { Task } from "../../types/index.types";
 import { Status } from "../../types/index.types";
-import { TaskCard } from "../TaskCard/TaskCard";
+import { TaskCard } from "../taskCard/TaskCard";
 import { Typography } from "@mui/material";
 import { AddTaskButton } from "../buttons/AddTaskButton";
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../store";
 import { updateTask } from "../slices/task.slice";
-import { StatusColumn } from "../components/StatusColumn/StatusColumn";
+import { StatusColumn } from "../components/statusColumn/StatusColumn";
 
 export const Board = () => {
   const dispatch = useDispatch();

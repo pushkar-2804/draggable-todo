@@ -42,13 +42,34 @@ export const TaskPage = () => {
     }
   };
 
+  const handleBack = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
   if (!task) {
     return (
-      <Container>
-        <Typography variant="h6" color="error">
-          Task not found
+      <Box
+        role="alert"
+        sx={{
+          width: "100%",
+          height: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h4" sx={{ color: "primary.main", mt: 2 }}>
+          No tasks found
         </Typography>
-      </Container>
+
+        <Box sx={{ display: "flex", gap: 2, mt: 4 }}>
+          <Button variant="outlined" onClick={handleBack}>
+            PREVIOUS PAGE
+          </Button>
+        </Box>
+      </Box>
     );
   }
 
