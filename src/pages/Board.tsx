@@ -25,9 +25,7 @@ export const Board = () => {
       <div
         style={{
           display: "flex",
-          gap: "16px",
-          padding: "16px",
-          paddingBottom: "40px",
+          overflow: "scroll",
         }}
       >
         {statuses.map((status) => (

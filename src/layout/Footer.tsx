@@ -1,6 +1,6 @@
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { IconButton } from "@mui/material";
+import { IconButton, useMediaQuery, useTheme } from "@mui/material";
 import { Box } from "@mui/material";
 
 interface Link {
@@ -23,41 +23,44 @@ const links: Link[] = [
 ];
 
 const Footer: React.FC = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
-    <>
-      <Box
-        component="footer"
-        sx={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          gap: 2,
-          padding: 2,
-          backgroundColor: "background.paper",
-          borderTop: "1px solid",
-          borderColor: "divider",
-        }}
-      >
-        {links.map(({ href, label, icon }) => (
-          <IconButton
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            sx={{
-              color: "text.primary",
-              "&:hover": { color: "primary.main" },
-            }}
-          >
-            {icon}
-          </IconButton>
-        ))}
-      </Box>
-    </>
+    <Box
+      component="footer"
+      sx={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: isSmallScreen ? 1 : 2,
+        padding: isSmallScreen ? 1 : 2,
+        backgroundColor: "background.paper",
+        borderTop: "1px solid",
+        borderColor: "divider",
+      }}
+    >
+      {links.map(({ href, label, icon }) => (
+        <IconButton
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          sx={{
+            color: "text.primary",
+            "&:hover": { color: "primary.main" },
+            fontSize: isSmallScreen ? "0.875rem" : "1rem",
+          }}
+        >
+          {icon}
+        </IconButton>
+      ))}
+    </Box>
   );
 };
 

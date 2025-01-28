@@ -1,7 +1,7 @@
 import { Droppable, Draggable } from "@hello-pangea/dnd";
 import { Task, Status } from "../../types/index.types";
 import { TaskCard } from "../taskCard/TaskCard";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { AddTaskButton } from "../buttons/AddTaskButton";
 import { AddStatusButton } from "../buttons/AddStatusButton";
 
@@ -14,26 +14,30 @@ export const StatusColumn: React.FC<StatusColumnProps> = ({
   status,
   tasks,
 }) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Droppable droppableId={status.id}>
       {(provided) => (
-        <div
+        <Box
           ref={provided.innerRef}
           {...provided.droppableProps}
-          style={{
+          sx={{
             flex: 1,
-            margin: "8px",
-            padding: "16px",
+            margin: isSmallScreen ? "0.5rem" : "1rem",
+            padding: isSmallScreen ? "0.5rem" : "1rem",
             border: "1px solid #ccc",
             borderRadius: "4px",
             backgroundColor: "#f9f9f9",
+            minWidth: isSmallScreen ? "80vw" : "auto",
           }}
         >
           <Box
             display="flex"
             alignItems="center"
             justifyContent="space-between"
-            marginBottom="8px"
+            marginBottom="0.5rem"
           >
             <Typography variant="h6">
               {status.name} ({tasks.length})
@@ -43,19 +47,22 @@ export const StatusColumn: React.FC<StatusColumnProps> = ({
           {tasks.map((task, index) => (
             <Draggable key={task.id} draggableId={task.id} index={index}>
               {(provided) => (
-                <div
+                <Box
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
+                  sx={{ marginBottom: "0.5rem" }}
                 >
                   <TaskCard task={task} />
-                </div>
+                </Box>
               )}
             </Draggable>
           ))}
           {provided.placeholder}
-          <AddTaskButton statusId={status.id} />
-        </div>
+          <Box sx={{ marginTop: "0.5rem" }}>
+            <AddTaskButton statusId={status.id} />
+          </Box>
+        </Box>
       )}
     </Droppable>
   );
