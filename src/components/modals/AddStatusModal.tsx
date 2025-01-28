@@ -53,6 +53,7 @@ export const AddStatusModal: React.FC<AddStatusModalProps> = ({
           required
           error={!!error}
           helperText={error}
+          sx={{ mt: "0.5rem" }}
         />
       </DialogContent>
       <DialogActions>
