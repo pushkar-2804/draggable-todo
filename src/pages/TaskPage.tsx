@@ -75,7 +75,7 @@ export const TaskPage = () => {
   return (
     <Container>
       <Box sx={{ marginTop: 4 }}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           Edit Task
         </Typography>
         <TextField

@@ -5,6 +5,7 @@ import { TaskPage } from "./pages/TaskPage";
 import ErrorBoundaryWrapper from "./components/error/ErrorBoundaryWrapper";
 import Footer from "./layout/Footer";
 import { CssBaseline } from "@mui/material";
+import Header from "./layout/Header";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <CssBaseline />
       <Router>
         <ErrorBoundaryWrapper>
+          <Header />
           <Routes>
             <Route path="/" element={<Board />} />
             <Route path="/task/:taskId" element={<TaskPage />} />
