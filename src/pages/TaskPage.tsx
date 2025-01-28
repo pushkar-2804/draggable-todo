@@ -13,7 +13,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { deleteTask, updateTask } from "../slices/task.slice";
+import { updateTask } from "../slices/task.slice";
 import { DeleteTaskButton } from "../components/buttons/DeleteTaskButton";
 
 export const TaskPage = () => {

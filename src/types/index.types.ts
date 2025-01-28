@@ -7,5 +7,5 @@ export interface Task {
   
 export interface Status {
     id: string;
-    name: string;
+    name: string;    
 }   

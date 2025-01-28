@@ -22,7 +22,14 @@ export const Board = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div style={{ display: "flex", gap: "16px", padding: "16px" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+          padding: "16px",
+          paddingBottom: "40px",
+        }}
+      >
         {statuses.map((status) => (
           <StatusColumn
             key={status.id}

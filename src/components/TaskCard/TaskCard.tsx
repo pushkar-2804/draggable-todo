@@ -15,7 +15,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
   };
 
   return (
-    <Card onClick={handleClick} style={{ cursor: "pointer" }}>
+    <Card
+      onClick={handleClick}
+      style={{ cursor: "pointer", margin: "0.5rem 0" }}
+    >
       <CardContent>
         <Typography variant="h6">{task.title}</Typography>
         <Typography variant="body2" color="textSecondary">
