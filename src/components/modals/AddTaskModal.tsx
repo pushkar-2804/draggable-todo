@@ -70,8 +70,15 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleAddTask} color="primary" variant="contained">
+        <Button onClick={onClose} size="small">
+          Cancel
+        </Button>
+        <Button
+          onClick={handleAddTask}
+          color="primary"
+          variant="contained"
+          size="small"
+        >
           Add Task
         </Button>
       </DialogActions>

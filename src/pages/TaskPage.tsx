@@ -14,6 +14,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import { deleteTask, updateTask } from "../slices/task.slice";
+import { DeleteTaskButton } from "../components/buttons/DeleteTaskButton";
 
 export const TaskPage = () => {
   const { taskId } = useParams();
@@ -36,13 +37,6 @@ export const TaskPage = () => {
     }
     if (task) {
       dispatch(updateTask({ ...task, title, description, status }));
-      navigate("/");
-    }
-  };
-
-  const handleDelete = () => {
-    if (task) {
-      dispatch(deleteTask(task.id));
       navigate("/");
     }
   };
@@ -116,18 +110,11 @@ export const TaskPage = () => {
             ))}
           </Select>
         </FormControl>
-        <Box sx={{ marginTop: 2 }}>
+        <Box sx={{ marginTop: 2, display: "flex", gap: 2 }}>
           <Button variant="contained" color="primary" onClick={handleSave}>
             Save
           </Button>
-          <Button
-            variant="contained"
-            color="error"
-            onClick={handleDelete}
-            style={{ marginLeft: "16px" }}
-          >
-            Delete Task
-          </Button>
+          <DeleteTaskButton taskId={task.id} />
         </Box>
       </Box>
     </Container>

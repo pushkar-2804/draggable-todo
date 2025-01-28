@@ -10,7 +10,12 @@ export const AddTaskButton = ({ statusId }: { statusId: string }) => {
 
   return (
     <>
-      <Button variant="text" onClick={handleOpen} style={{ marginTop: "16px" }}>
+      <Button
+        variant="text"
+        onClick={handleOpen}
+        style={{ marginTop: "16px" }}
+        size="small"
+      >
         + New
       </Button>
       <AddTaskModal statusId={statusId} open={open} onClose={handleClose} />
