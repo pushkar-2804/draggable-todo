@@ -1,6 +1,5 @@
 import { Droppable, Draggable } from "@hello-pangea/dnd";
-import { Task } from "../../types/index.types";
-import { Status } from "../../types/index.types";
+import { Task, Status } from "../../types/index.types";
 import { TaskCard } from "../taskCard/TaskCard";
 import { Typography } from "@mui/material";
 import { AddTaskButton } from "../buttons/AddTaskButton";
@@ -29,7 +28,7 @@ export const StatusColumn: React.FC<StatusColumnProps> = ({
             backgroundColor: "#f9f9f9",
           }}
         >
-          <Typography variant="h6" style={{ marginBottom: "16px" }}>
+          <Typography variant="h6" style={{ marginBottom: "8px" }}>
             {status.name} ({tasks.length})
           </Typography>
           {tasks.map((task, index) => (

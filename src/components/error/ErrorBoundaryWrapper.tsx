@@ -10,10 +10,7 @@ const ErrorBoundaryWrapper = ({ children }: ErrorBoundaryWrapperProps) => {
   const location = useLocation();
 
   return (
-    <ErrorBoundary
-      key={location.pathname} // Reset error boundary on route change
-      FallbackComponent={ErrorFallback}
-    >
+    <ErrorBoundary key={location.pathname} FallbackComponent={ErrorFallback}>
       {children}
     </ErrorBoundary>
   );

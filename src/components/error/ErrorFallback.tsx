@@ -10,13 +10,13 @@ const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // Go back to the previous page
-    resetErrorBoundary(); // Reset the error boundary
+    navigate(-1);
+    resetErrorBoundary();
   };
 
   const handleRefresh = () => {
-    window.location.reload(); // Refresh the page
-    resetErrorBoundary(); // Reset the error boundary
+    window.location.reload();
+    resetErrorBoundary();
   };
 
   return (

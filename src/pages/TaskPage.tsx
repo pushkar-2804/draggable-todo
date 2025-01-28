@@ -27,8 +27,13 @@ export const TaskPage = () => {
   const [title, setTitle] = useState(task?.title || "");
   const [description, setDescription] = useState(task?.description || "");
   const [status, setStatus] = useState(task?.status || "");
+  const [error, setError] = useState<string | null>(null);
 
   const handleSave = () => {
+    if (!title.trim()) {
+      setError("Title cannot be empty");
+      return;
+    }
     if (task) {
       dispatch(updateTask({ ...task, title, description, status }));
       navigate("/");
@@ -85,6 +90,8 @@ export const TaskPage = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           margin="normal"
+          error={!!error}
+          helperText={error}
         />
         <TextField
           fullWidth
@@ -99,7 +106,7 @@ export const TaskPage = () => {
           <InputLabel>Status</InputLabel>
           <Select
             value={status}
-            onChange={(e) => setStatus(e.target.value as string)} // Ensure this is correct
+            onChange={(e) => setStatus(e.target.value as string)}
             label="Status"
           >
             {statuses.map((status) => (

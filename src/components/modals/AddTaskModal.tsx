@@ -25,8 +25,13 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const handleAddTask = () => {
+    if (!title.trim()) {
+      setError("Title cannot be empty");
+      return;
+    }
     const newTask = {
       id: generateId(),
       title,
@@ -50,6 +55,9 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           fullWidth
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
+          error={!!error}
+          helperText={error}
         />
         <TextField
           margin="dense"
@@ -63,7 +71,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleAddTask} color="primary">
+        <Button onClick={handleAddTask} color="primary" variant="contained">
           Add Task
         </Button>
       </DialogActions>
