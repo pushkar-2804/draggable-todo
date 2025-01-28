@@ -2,11 +2,10 @@ import { Button, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 interface ErrorFallbackProps {
-  error: Error;
   resetErrorBoundary: () => void;
 }
 
-const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
+const ErrorFallback = ({ resetErrorBoundary }: ErrorFallbackProps) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
