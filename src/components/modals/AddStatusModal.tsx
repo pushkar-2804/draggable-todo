@@ -28,7 +28,7 @@ export const AddStatusModal: React.FC<AddStatusModalProps> = ({
 
   const handleAddStatus = () => {
     if (!status.trim()) {
-      setError("Title cannot be empty");
+      setError("Status cannot be empty");
       return;
     }
     const newStatus = {
@@ -42,11 +42,11 @@ export const AddStatusModal: React.FC<AddStatusModalProps> = ({
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Add New Task</DialogTitle>
+      <DialogTitle>Add New Status</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
-          label="Title"
+          label="Status"
           fullWidth
           value={status}
           onChange={(e) => setStatus(e.target.value)}
